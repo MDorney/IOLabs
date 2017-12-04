@@ -25,6 +25,7 @@ public class LabWork {
 	   in = new BufferedReader(new FileReader(data));
 	   String line = in.readLine();
 	   while(line != null){
+<<<<<<< HEAD
                 String toPrint = ""; 
                 String[] temp = line.split(" ");
                 toPrint += temp[temp.length - 1];
@@ -79,6 +80,55 @@ public class LabWork {
 //                
 //            }
 //        }
+=======
+		  System.out.println(line);
+		  line = in.readLine();  // strips out any carriage return chars
+	   }
+	 
+        } catch(IOException ioe) {
+            System.out.println("Problem While Reading File");
+        } finally {
+            try {
+                in.close();
+            } catch(Exception e) {
+                
+            }
+        }
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new BufferedWriter(new FileWriter(data, true)));
+        } catch(IOException ioe) {
+            System.out.println("Problem While Writing File");
+        } finally {
+            out.println("John Doe");
+            out.println("121 Left St.");
+            out.println("Delafield, Wisconsin 53018");
+            out.println("James McJamerson");
+            out.println("343 Right St.");
+            out.println("Milwaukee, Wisconsin 53172");
+            out.close();
+        }
+        try {
+            in = new BufferedReader(new FileReader(data));
+            String line = "";
+            for (int i = 0; i < 4; i++) {
+                line = in.readLine();
+            }
+            
+            in.readLine();
+            String cityState = in.readLine();
+            String[] locationArray = cityState.split(" ");
+            System.out.print(line + " state: " + locationArray[locationArray.length - 2]);
+        } catch(IOException ioe) {
+            System.out.println("Problem While Reading File");
+        } finally {
+            try {
+                in.close();
+            } catch(Exception e) {
+                
+            }
+        }
+>>>>>>> origin/master
         
         
     }
